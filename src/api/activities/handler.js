@@ -22,9 +22,8 @@ async getPlaylistSongActivities(request, h) {
             activities,
         },
     });
-
     response.code(200);
-    return response;
+    return response; 
   }
 }
 

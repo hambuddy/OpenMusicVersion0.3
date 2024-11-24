@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 exports.up = (pgm) => {
     pgm.createTable('albums', {
         id: {
@@ -9,12 +11,15 @@ exports.up = (pgm) => {
             notNull: true,
         },
         year: {
-            type: 'INTEGER',
+            type: 'integer',
             notNull: true,
+        },
+        cover_url: {
+            type: 'TEXT',
         },
     });
 };
-
+  
 exports.down = (pgm) => {
     pgm.dropTable('albums');
 };

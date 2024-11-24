@@ -1,3 +1,6 @@
+const path = require('path');
+
+
 const albumRoutes = (handler) => [
     {
         method: 'POST',
@@ -18,6 +21,27 @@ const albumRoutes = (handler) => [
         method: 'DELETE',
         path: '/albums/{id}',
         handler: handler.deleteAlbumByIdHandler,
+    },
+    {
+        method: 'POST',
+        path: '/albums/{id}/likes',
+        handler: (request, h) => handler.postUserLikeAlbumByIdHandler(request, h),
+        options: {
+            auth: 'openmusic_jwt',
+        },
+    },
+    {
+        method: 'DELETE',
+        path: '/albums/{id}/likes',
+        handler: (request, h) => handler.deleteUserAlbumLikesByIdHandler(request, h),
+        options: {
+            auth: 'openmusic_jwt',
+        },
+    },
+    {
+        method: 'GET',
+        path: '/albums/{id}/likes',
+        handler: (request, h) => handler.getUserAlbumLikeHandler(request, h),
     },
 ];
 

@@ -1,13 +1,11 @@
 /* eslint-disable object-curly-spacing */
 import globals from 'globals';
 import pluginJs from '@eslint/js';
-import daStyle from 'eslint-config-dicodingacademy';
+import airbnbStyle from 'eslint-config-airbnb-base';
 
-
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  {files: ['**/*.js'], languageOptions: {sourceType: 'commonjs'}},
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
-  daStyle,
-];
+export default {
+  extends: ['airbnb-base', pluginJs.configs.recommended],
+  languageOptions: {
+    globals: globals.browser,
+  },
+};

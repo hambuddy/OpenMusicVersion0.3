@@ -112,7 +112,6 @@ class PlaylistsService {
         const result = await this._pool.query(query);
     
         if (!result.rowCount) {
-            console.log('Deletion failed: No matching entry found');
             throw new InvariantError('Lagu gagal dihapus dari playlist');
         }
     }
